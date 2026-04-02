@@ -36,8 +36,8 @@ L1 ORCHESTRATOR
 ## Setup
 
 ```bash
-git clone <repo>
-cd nion_orchestration
+git clone https://github.com/SAKSHAM-73/nion-orchestration-engine.git
+cd nion-orchestration-engine
 ```
 
 No virtual environment or pip install needed — the engine is pure Python stdlib.
