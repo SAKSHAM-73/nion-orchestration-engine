@@ -1,0 +1,100 @@
+==============================================================================
+NION ORCHESTRATION MAP
+==============================================================================
+Message: MSG-103
+From: Mike Johnson (VP Engineering)
+Project: PRJ-GAMMA
+
+==============================================================================
+L1 PLAN
+==============================================================================
+[TASK-001] -> L3:knowledge_retrieval (Cross-Cutting)
+  Purpose: Retrieve project context and stakeholder details
+
+[TASK-002] -> L2:TRACKING_EXECUTION
+  Purpose: Extract action items from message content
+
+[TASK-003] -> L2:TRACKING_EXECUTION
+  Purpose: Extract decisions or decision requests
+
+[TASK-004] -> L2:COMMUNICATION_COLLABORATION
+  Purpose: Formulate gap-aware response to question
+  Depends On: TASK-002, TASK-003, TASK-001
+
+[TASK-005] -> L3:evaluation (Cross-Cutting)
+  Purpose: Evaluate response for accuracy, tone and completeness
+  Depends On: TASK-004
+
+[TASK-006] -> L2:COMMUNICATION_COLLABORATION
+  Purpose: Deliver response via email
+  Depends On: TASK-005
+
+==============================================================================
+L2/L3 EXECUTION
+==============================================================================
+
+[TASK-001] L3:knowledge_retrieval (Cross-Cutting)
+  Status: COMPLETED
+  Output:
+    * Project: PRJ-GAMMA
+    * Open Items: Security fixes (5), Dashboard feature (1)
+    * Security Fix Priority: Not formally assigned
+    * Dashboard ETA: Q1 next year
+    * VP Engineering: Mike Johnson | Security Lead: TBD
+    * Risk Level: MEDIUM
+
+[TASK-002] L2:TRACKING_EXECUTION
+  +-> [TASK-002-A] L3:action_item_extraction
+        Status: COMPLETED
+        Output:
+          * AI-001: "Apply security fixes"
+          *       Owner: ? | Due: ? | Flags: [MISSING_OWNER, MISSING_DUE_DATE]
+          * AI-002: "Build new dashboard"
+          *       Owner: ? | Due: ? | Flags: [MISSING_OWNER, MISSING_DUE_DATE]
+
+[TASK-003] L2:TRACKING_EXECUTION
+  +-> [TASK-003-A] L3:decision_extraction
+        Status: COMPLETED
+        Output:
+          * DEC-001: "Prioritize security fixes vs new dashboard feature"
+          *       Decision Maker: Mike Johnson (VP Eng) | Status: PENDING
+
+[TASK-004] L2:COMMUNICATION_COLLABORATION
+  +-> [TASK-004-A] L3:qna
+        Status: COMPLETED
+        Output:
+          * Response to Mike Johnson: "Prioritization Recommendation Request"
+          * 
+          *   WHAT I KNOW:
+          *   • Project: PRJ-GAMMA | Security fixes: 5 open items
+          *   • Dashboard feature: 1 item (Q1 target)
+          *   • Security severity: Not formally rated
+          * 
+          *   WHAT I'VE LOGGED:
+          *   • 1 pending decision: Security fixes vs Dashboard
+          * 
+          *   WHAT I NEED:
+          *   • Security risk assessment from Security Lead
+          *   • Business impact of dashboard delay from Product
+          *   • Final call from VP Engineering (Mike Johnson)
+
+[TASK-005] L3:evaluation (Cross-Cutting)
+  Status: COMPLETED
+  Output:
+    * Relevance: PASS
+    * Accuracy: PASS
+    * Tone: PASS
+    * Completeness: PASS
+    * Gaps Acknowledged: PASS
+    * Result: APPROVED
+
+[TASK-006] L2:COMMUNICATION_COLLABORATION
+  +-> [TASK-006-A] L3:message_delivery
+        Status: COMPLETED
+        Output:
+          * Channel: email
+          * Recipient: Mike Johnson
+          * CC: Mike Johnson (VP Engineering)
+          * Delivery Status: SENT
+
+==============================================================================

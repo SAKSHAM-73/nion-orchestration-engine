@@ -1,0 +1,142 @@
+==============================================================================
+NION ORCHESTRATION MAP
+==============================================================================
+Message: MSG-104
+From: System (Meeting Bot)
+Project: PRJ-ALPHA
+
+==============================================================================
+L1 PLAN
+==============================================================================
+[TASK-001] -> L2:COMMUNICATION_COLLABORATION
+  Purpose: Capture and parse meeting transcript
+
+[TASK-002] -> L3:knowledge_retrieval (Cross-Cutting)
+  Purpose: Retrieve project context and stakeholder details
+
+[TASK-003] -> L2:TRACKING_EXECUTION
+  Purpose: Extract action items from message content
+
+[TASK-004] -> L2:TRACKING_EXECUTION
+  Purpose: Extract risks and assess likelihood/impact
+
+[TASK-005] -> L2:TRACKING_EXECUTION
+  Purpose: Extract issues and assess severity
+
+[TASK-006] -> L2:COMMUNICATION_COLLABORATION
+  Purpose: Formulate acknowledgement with logged items
+  Depends On: TASK-003, TASK-004, TASK-005, TASK-002
+
+[TASK-007] -> L3:evaluation (Cross-Cutting)
+  Purpose: Evaluate response for accuracy, tone and completeness
+  Depends On: TASK-006
+
+[TASK-008] -> L2:COMMUNICATION_COLLABORATION
+  Purpose: Deliver response via meeting
+  Depends On: TASK-007
+
+==============================================================================
+L2/L3 EXECUTION
+==============================================================================
+
+[TASK-001] L2:COMMUNICATION_COLLABORATION
+  +-> [TASK-001-A] L3:meeting_attendance
+        Status: COMPLETED
+        Output:
+          * Meeting transcript captured
+          * Participants detected: Dev, QA, Designer, Tech Lead
+          * Duration: ~30 min (estimated)
+          * Meeting Minutes: GENERATED
+          * Key topics: Blockers, Bugs, Design updates, Technical debt
+
+[TASK-002] L3:knowledge_retrieval (Cross-Cutting)
+  Status: COMPLETED
+  Output:
+    * Project: PRJ-ALPHA
+    * Current Release Date: Dec 15
+    * Days Remaining: 20
+    * Code Freeze: Dec 10
+    * Current Progress: 70%
+    * Team Capacity: 85% utilized
+    * Engineering Manager: Alex Kim
+    * Tech Lead: David Park
+    * Open Action Items: 4 | Open Risks: 2
+
+[TASK-003] L2:TRACKING_EXECUTION
+  +-> [TASK-003-A] L3:action_item_extraction
+        Status: COMPLETED
+        Output:
+          * AI-001: "Review and approve mobile mockups"
+          *       Owner: Designer | Due: Thursday
+          * AI-002: "Evaluate auth module refactor scope"
+          *       Owner: Tech Lead | Due: ? | Flags: [MISSING_DUE_DATE]
+          * AI-003: "Resolve API integration blockage"
+          *       Owner: Dev | Due: ? | Flags: [MISSING_DUE_DATE]
+          * AI-004: "Restore staging environment"
+          *       Owner: DevOps | Due: Immediately
+
+[TASK-004] L2:TRACKING_EXECUTION
+  +-> [TASK-004-A] L3:risk_extraction
+        Status: COMPLETED
+        Output:
+          * RISK-001: "Engineering blocker on API integration"
+          *       Likelihood: HIGH | Impact: HIGH
+          * RISK-002: "Staging environment unavailable, blocks QA"
+          *       Likelihood: HIGH | Impact: HIGH
+          * RISK-003: "Critical bugs in payment flow risk production stability"
+          *       Likelihood: HIGH | Impact: CRITICAL
+          * RISK-004: "Auth module refactor may destabilize existing features"
+          *       Likelihood: MEDIUM | Impact: HIGH
+
+[TASK-005] L2:TRACKING_EXECUTION
+  +-> [TASK-005-A] L3:issue_extraction
+        Status: COMPLETED
+        Output:
+          * ISS-001: "API integration blocker — staging environment down"
+          *       Severity: CRITICAL | Status: OPEN | Assignee: ?
+          * ISS-002: "Staging environment down — blocks all QA activities"
+          *       Severity: CRITICAL | Status: OPEN | Assignee: ?
+          * ISS-003: "3 critical bugs found in payment flow"
+          *       Severity: CRITICAL | Status: OPEN | Assignee: ?
+          * ISS-004: "Potential need to refactor auth module — scope unclear"
+          *       Severity: MEDIUM | Status: OPEN | Assignee: ?
+
+[TASK-006] L2:COMMUNICATION_COLLABORATION
+  +-> [TASK-006-A] L3:qna
+        Status: COMPLETED
+        Output:
+          * Meeting Minutes Summary:
+          * 
+          *   BLOCKERS:
+          *   • Dev is blocked on API integration (staging is down)
+          * 
+          *   BUGS:
+          *   • QA found 3 critical bugs in payment flow
+          * 
+          *   UPDATES:
+          *   • Designer: Mobile mockups ready by Thursday
+          *   • Tech Lead: Auth module refactor may be needed
+          * 
+          *   ACTION ITEMS LOGGED: 3 | RISKS LOGGED: 2 | ISSUES LOGGED: 2
+          *   Minutes distributed to project stakeholders
+
+[TASK-007] L3:evaluation (Cross-Cutting)
+  Status: COMPLETED
+  Output:
+    * Relevance: PASS
+    * Accuracy: PASS
+    * Tone: PASS
+    * Completeness: PASS
+    * Gaps Acknowledged: PASS
+    * Result: APPROVED
+
+[TASK-008] L2:COMMUNICATION_COLLABORATION
+  +-> [TASK-008-A] L3:message_delivery
+        Status: COMPLETED
+        Output:
+          * Channel: email (post-meeting digest)
+          * Recipient: System
+          * CC: Alex Kim (Engineering Manager)
+          * Delivery Status: SENT
+
+==============================================================================
