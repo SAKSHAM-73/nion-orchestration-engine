@@ -148,6 +148,14 @@ L2/L3 EXECUTION
 | MSG-105 | Urgent legal escalation      | PRJ-DELTA |
 | MSG-106 | Ambiguous / no project       | null      |
 
+## Assumptions & Design Decisions
+
+- **L3 outputs are simulated** with realistic placeholder data as permitted by the task spec ("dummy placeholders can be generated randomly").
+- **Intent detection** uses keyword scanning on message content to keep the L1 plan minimal and relevant — only agents needed for the message are scheduled.
+- **Visibility is enforced architecturally**: `L1Orchestrator` only references `L2:<DOMAIN>` or cross-cutting agents. `L2Coordinator.resolve_l3()` maps purposes to domain-specific L3 agents — L1 has no knowledge of these.
+- **Dependency tracking** is explicit: each task records `depends_on` IDs, visible in the L1 PLAN section.
+- No third-party packages — pure Python 3.9+ stdlib only.
+
 ## Key Design Decisions
 
 **Visibility enforcement:** L1 only schedules tasks targeting `L2:<DOMAIN>` or
